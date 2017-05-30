@@ -9,18 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //配列に写真の名前を入れ込む
     @IBOutlet weak var mobeonButton: UIButton!
     @IBOutlet weak var remobeBotton: UIButton!
     @IBOutlet weak var displayView: UIImageView!
+    @IBOutlet weak var playbuttonObject: UIButton!
     var viewset = ["DSC_0001.JPG","DSC_0002.JPG","DSC_0003.JPG"]
     var i:Int = 0
     let timer_sec:Float = 0.0
     var timer:Timer?
-    //配列をカウント
-    //for文をって要素数を順番に表示
-    //タイマーセット
-    //セグエ値渡し
+ 
     
 
     override func viewDidLoad() {
@@ -35,8 +32,12 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         let enlargedimageViewController:EnlargedimageViewController = segue.destination as! EnlargedimageViewController
         enlargedimageViewController.viewName = viewset[i]
+        if timer != nil{
+            self.timer?.invalidate()
+    }
     }
     @IBAction func unwind(unwindSegue: UIStoryboardSegue ){
     }
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
             imageview()
         }
     }
+
     //スタート・ストップボタン
     @IBAction func playStop(_ sender: Any) {
         if timer != nil{
@@ -62,10 +64,16 @@ class ViewController: UIViewController {
             self.timer = nil
             mobeonButton.isEnabled = true
             remobeBotton.isEnabled = true
+            playbuttonObject.setTitle("再生", for: .highlighted)
+            playbuttonObject.setTitle("再生", for: .normal)
+            
+            
             
         }else if timer == nil{
             mobeonButton.isEnabled = false
             remobeBotton.isEnabled = false
+            playbuttonObject.setTitle("一時停止", for:.highlighted)
+            playbuttonObject.setTitle("一時停止", for: .normal)
             
             self.timer = Timer.scheduledTimer(timeInterval: 2.0, target:self, selector:#selector(moveonin), userInfo: nil, repeats: true)
         }

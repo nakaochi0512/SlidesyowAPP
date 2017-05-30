@@ -22,8 +22,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia4-JR-7a3">
-                                <rect key="frame" x="239" y="607" width="97" height="30"/>
-                                <state key="normal" title="再生/一時停止"/>
+                                <rect key="frame" x="272" y="607" width="31" height="30"/>
+                                <state key="normal" title="再生"/>
                                 <connections>
                                     <action selector="playStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cqE-68-tXY"/>
                                 </connections>
@@ -68,12 +68,14 @@
                     <connections>
                         <outlet property="displayView" destination="PuD-Aw-XCd" id="20U-Lz-ioX"/>
                         <outlet property="mobeonButton" destination="aYv-Sc-FUn" id="NKt-qX-x3X"/>
+                        <outlet property="playbuttonObject" destination="ia4-JR-7a3" id="eR1-MU-F0F"/>
                         <outlet property="remobeBotton" destination="pb6-yw-pXL" id="24D-AD-tBi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="een-UV-Zd7">
                     <connections>
+                        <action selector="tapImage:" destination="BYZ-38-t0r" id="8ze-wL-fHX"/>
                         <segue destination="Wwv-jg-6VF" kind="show" id="93u-Pp-JQK"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -99,7 +101,7 @@
                                     <segue destination="8aC-Pf-kMB" kind="unwind" unwindAction="unwindWithUnwindSegue:" id="fZV-LJ-iUl"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2R-dp-pLX">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2R-dp-pLX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
