@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         enlargedimageViewController.viewName = viewset[i]
         if timer != nil{
             self.timer?.invalidate()
+            playbuttonObject.setTitle("再生", for: .highlighted)
+            playbuttonObject.setTitle("再生", for: .normal)
+            
     }
     }
     @IBAction func unwind(unwindSegue: UIStoryboardSegue ){
