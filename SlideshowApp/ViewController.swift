@@ -32,17 +32,18 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         let enlargedimageViewController:EnlargedimageViewController = segue.destination as! EnlargedimageViewController
         enlargedimageViewController.viewName = viewset[i]
         if timer != nil{
             self.timer?.invalidate()
-            playbuttonObject.setTitle("再生", for: .highlighted)
             playbuttonObject.setTitle("再生", for: .normal)
-            
+            self.timer = nil
+            mobeonButton.isEnabled = true
+            remobeBotton.isEnabled = true
     }
     }
     @IBAction func unwind(unwindSegue: UIStoryboardSegue ){
+    
     }
     
     //進むボタン
@@ -67,17 +68,13 @@ class ViewController: UIViewController {
             self.timer = nil
             mobeonButton.isEnabled = true
             remobeBotton.isEnabled = true
-            playbuttonObject.setTitle("再生", for: .highlighted)
             playbuttonObject.setTitle("再生", for: .normal)
-            
             
             
         }else if timer == nil{
             mobeonButton.isEnabled = false
             remobeBotton.isEnabled = false
-            playbuttonObject.setTitle("一時停止", for:.highlighted)
             playbuttonObject.setTitle("一時停止", for: .normal)
-            
             self.timer = Timer.scheduledTimer(timeInterval: 2.0, target:self, selector:#selector(moveonin), userInfo: nil, repeats: true)
         }
     }
